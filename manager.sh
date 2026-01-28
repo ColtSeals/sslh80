@@ -262,8 +262,8 @@ EOF
 
     install_sslh() {
     cabecalho; apt install sslh -y >/dev/null
-    echo 'DAEMON_OPTS="--user sslh --listen 0.0.0.0:80 --ssh 127.0.0.1:22"' > /etc/default/sslh
-    systemctl restart sslh; echo -e "${G}SSLH Ativo na 80!${NC}"; sleep 2
+    echo 'DAEMON_OPTS="--user sslh --listen 0.0.0.0:8080 --ssh 127.0.0.1:22"' > /etc/default/sslh
+    systemctl restart sslh; echo -e "${G}SSLH Ativo na 8080!${NC}"; sleep 2
     }
 
     configurar_cron_monitor() {
