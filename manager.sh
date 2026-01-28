@@ -220,24 +220,31 @@ read -p "Enter..."
 }
 
 configurar_smtp() {
-cabecalho
-read -p "Gmail: " e; read -p "Senha App: " s
-cat <<EOF > "$CONFIG_SMTP"
-    defaults
-    auth on
-    tls on
-    tls_trust_file /etc/ssl/certs/ca-certificates.crt
-    account gmail
-    host smtp.gmail.com
-    port 587
-    from $e
-    user $e
-    password $s
-    account default : gmail
-    EOF
-    chmod 600 "$CONFIG_SMTP"
-    echo -e "${G}SMTP Configurado!${NC}"; sleep 2
-    }
+  cabecalho
+  read -p "Gmail: " e
+  read -p "Senha App: " s
+
+  cat <<EOF > "$CONFIG_SMTP"
+defaults
+auth on
+tls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+account gmail
+host smtp.gmail.com
+port 587
+from $e
+user $e
+password $s
+
+account default : gmail
+EOF
+
+  chmod 600 "$CONFIG_SMTP"
+  echo -e "${G}SMTP Configurado!${NC}"
+  sleep 2
+}
+
 
     install_deps() {
     cabecalho
